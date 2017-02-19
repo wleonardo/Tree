@@ -36,10 +36,6 @@
     });
   }
 
-  function clone(obj) {
-    return JSON.parse(JSON.stringify(obj));
-  }
-
   var Tree = function(elem, userOption) {
     if (!elem) return false;
     var defaultOptions = {};
@@ -67,7 +63,7 @@
       if (nodeError(node)) {
         return false;
       }
-      return node.open || node.searched
+      return node.open || node.searched;
     }
 
     function isRootNode(sort) {
@@ -77,6 +73,19 @@
     function isForceClosed(node) {
       return node.open === false;
     }
+
+    /**
+     * [getArrayDeep 深度遍历获取数组中指定的内容]
+     */
+    this.getArrayDeep = function(arr, sortList) {
+      if (sortList.length > 1) {
+        var newSortList = sortList.slice(1);
+        var cache = this.getArrayDeep(arr[sortList[0]].children, newSortList);
+      } else {
+        return arr[sortList[0]];
+      }
+      return cache;
+    };
 
     /**
      * [createDomTree 递归nodes数组，生出对于的dom树，通过这个函数打通数组和最后的dom结构，使其他地方只需要控制nodes数组即可]
@@ -127,18 +136,7 @@
       $(elem).empty().append(treeDOM);
     };
 
-    /**
-     * [getArrayDeep 深度遍历获取数组中指定的内容]
-     */
-    this.getArrayDeep = function(arr, sortList) {
-      if (sortList.length > 1) {
-        var newSortList = sortList.slice(1);
-        var cache = this.getArrayDeep(arr[sortList[0]].children, newSortList);
-      } else {
-        return arr[sortList[0]];
-      }
-      return cache;
-    };
+
     /**
      * [selectNode 选中节点并发起回调]
      */
