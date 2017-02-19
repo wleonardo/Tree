@@ -1,0 +1,11 @@
+// 工具类
+@for $i from 0 through 20 {
+  .ml#{$i*5} { margin-left: 5px * $i !important; }
+  .mr#{$i*5} { margin-right: 5px * $i !important; }
+  .mb#{$i*5} { margin-bottom: 5px * $i !important; }
+  .mt#{$i*5} { margin-top: 5px * $i !important; }
+  .pl#{$i*5} { padding-left: 5px * $i !important; }
+  .pr#{$i*5} { padding-right: 5px * $i !important; }
+  .pb#{$i*5} { padding-bottom: 5px * $i !important; }
+  .pt#{$i*5} { padding-top: 5px * $i !important; }
+}
