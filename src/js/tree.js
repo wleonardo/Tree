@@ -39,10 +39,10 @@
   function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
   }
+
   var Tree = function(elem, userOption) {
     if (!elem) return false;
-    var defaultOptions = {
-    };
+    var defaultOptions = {};
     var option = {};
 
     $.extend(option, defaultOptions, userOption);
@@ -70,17 +70,14 @@
       return node.open || node.searched
     }
 
-    function isRootNode(sort){
+    function isRootNode(sort) {
       return sort === undefined;
     }
 
-    function isForceClosed(node){
-      return node.open === false; 
+    function isForceClosed(node) {
+      return node.open === false;
     }
 
-    function isForceOpen(node, sort){
-      return (isNodeOpen(node) || isRootNode(sort)) && !isForceClosed(node);
-    }
     /**
      * [createDomTree 递归nodes数组，生出对于的dom树，通过这个函数打通数组和最后的dom结构，使其他地方只需要控制nodes数组即可]
      * @param  {[type]} NodeList [nodes数组]
@@ -90,7 +87,7 @@
      */
     function createDomTree(NodeList, sort, opened) {
       var html = $('<ul data-sort="' + sort + '""></ul>');
-      if ((!sort && opened !== false ) || opened) {
+      if ((!sort && opened !== false) || opened) {
         html.addClass('show');
       }
       NodeList.forEach(function(node, i) {
@@ -106,7 +103,7 @@
 
         if (isForceClosed(node)) {
           nodeHtml.removeClass('open').addClass('closed');
-        } 
+        }
 
         if (hasChildren(node)) {
           var childrenHtml = createDomTree(node.children, sort === undefined ? i : sort + '-' + i, node.open);
@@ -130,6 +127,9 @@
       $(elem).empty().append(treeDOM);
     };
 
+    /**
+     * [getArrayDeep 深度遍历获取数组中指定的内容]
+     */
     this.getArrayDeep = function(arr, sortList) {
       if (sortList.length > 1) {
         var newSortList = sortList.slice(1);
@@ -166,13 +166,11 @@
       var sort = $this.attr('data-sort');
       sort = sort.split('-');
       var cache = this.getArrayDeep(this.nodes, sort);
-      console.log(cache);
       if (cache.open === undefined && option.opened) {
         cache.open = false;
-      }else{
+      } else {
         cache.open = !cache.open;
       }
-      console.log(this.nodes);
       this.updateTreeDom();
       event.stopPropagation();
     }.bind(this));
