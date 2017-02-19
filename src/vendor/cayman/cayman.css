@@ -8,14 +8,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #606c71; }
-
-a {
-  color: #1e6bb8;
-  text-decoration: none; }
-  a:hover {
-    text-decoration: underline; }
-
-.btn {
+.cay-btn {
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -25,27 +18,50 @@ a {
   border-width: 1px;
   border-radius: 0.3rem;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
-  .btn:hover {
+  .cay-btn:hover {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.3); }
-  .btn + .btn {
+  .cay-btn + .cay-btn {
     margin-left: 1rem; }
   @media screen and (min-width: 64em) {
-    .btn {
+    .cay-btn {
       padding: 0.75rem 1rem; } }
   @media screen and (min-width: 42em) and (max-width: 64em) {
-    .btn {
+    .cay-btn {
       padding: 0.6rem 0.9rem;
       font-size: 0.9rem; } }
   @media screen and (max-width: 42em) {
-    .btn {
+    .cay-btn {
       display: block;
       width: 100%;
       padding: 0.75rem;
       font-size: 0.9rem; }
-      .btn + .btn {
+      .cay-btn + .cay-btn {
+        margin-top: 1rem;
+        margin-left: 0; } }
+a {
+  color: #1e6bb8;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  .cay-btn + .cay-btn {
+    margin-left: 1rem; }
+  @media screen and (min-width: 64em) {
+    .cay-btn {
+      padding: 0.75rem 1rem; } }
+  @media screen and (min-width: 42em) and (max-width: 64em) {
+    .cay-btn {
+      padding: 0.6rem 0.9rem;
+      font-size: 0.9rem; } }
+  @media screen and (max-width: 42em) {
+    .cay-btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 0.9rem; }
+      .cay-btn + .cay-btn {
         margin-top: 1rem;
         margin-left: 0; } }
 
