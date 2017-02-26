@@ -1,6 +1,5 @@
 'use strict';
 (function(factory) {
-  "use strict";
   if (typeof define === 'function' && define.amd) { // AMD
     define(['jquery'], factory);
   } else if (typeof exports == "object" && typeof module == "object") { // CommonJS

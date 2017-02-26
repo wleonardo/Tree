@@ -1,3 +1,8 @@
+require('./bundle.js');
+require('../vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css');
+require('../sass/tree.scss');
+require('../sass/demo.scss');
+
 $(document).ready(function() {
   var treeInstance = new Tree('.tree', {
     nodes: [{
